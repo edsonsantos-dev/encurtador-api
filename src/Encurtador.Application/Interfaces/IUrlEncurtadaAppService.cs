@@ -6,5 +6,5 @@ public interface IUrlEncurtadaAppService
 {
     Task<string> AdicionarAsync(UrlEncurtadaViewModel viewModel);
     Task<string?> ObterUrlOriginal(string codigoAlfanumerico);
-    Task ExcluirExpiradosAsync();
+    Task ExcluirExpiradosAsync(bool excluirFisicamente = false);
 }

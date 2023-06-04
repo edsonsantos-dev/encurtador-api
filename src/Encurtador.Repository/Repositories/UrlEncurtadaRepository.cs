@@ -22,7 +22,15 @@ public class UrlEncurtadaRepository : RepositoryGeneric<UrlEncurtada>, IUrlEncur
             .FirstOrDefaultAsync(x => x.CodigoAlfanumerico == codigoAlfanumerico);
     }
 
-    public async Task ExcluirExpiradosAsync()
+    public async Task ExcluirExpiradosAsync(bool excluirFisicamente = false)
+    {
+        await (excluirFisicamente ?
+            ExcluirFisicamenteExpiradosAsync() :
+            ExcluirLogicamenteExpiradosAsync());
+
+    }
+
+    private async Task ExcluirLogicamenteExpiradosAsync()
     {
         await _context.UrlEncurtadas
             .AsNoTracking()
@@ -30,5 +38,12 @@ public class UrlEncurtadaRepository : RepositoryGeneric<UrlEncurtada>, IUrlEncur
                 x.Status == Status.Ativa)
             .ExecuteUpdateAsync(x =>
             x.SetProperty(e => e.Status, e => Status.Excluida));
+    }
+
+    private async Task ExcluirFisicamenteExpiradosAsync()
+    {
+        await _context.UrlEncurtadas
+                .Where(x => x.Status == Status.Excluida)
+                .ExecuteDeleteAsync();
     }
 }
