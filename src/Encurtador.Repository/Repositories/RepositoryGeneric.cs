@@ -14,7 +14,7 @@ public class RepositoryGeneric<TEntity> : IRepository<TEntity> where TEntity : c
         _context = context;
         _dbSet = context.Set<TEntity>();
     }
-    public virtual async Task<TEntity> CadastrarAsync(TEntity entity)
+    public virtual async Task<TEntity> AdicionarAsync(TEntity entity)
     {
         var entityPersisty = await _dbSet.AddAsync(entity);
 

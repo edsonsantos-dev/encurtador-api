@@ -7,8 +7,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Folder Include="AppServices\" />
-		<Folder Include="ViewModels\" />
+	  <ProjectReference Include="..\Encurtador.Repository\Encurtador.Repository.csproj" />
 	</ItemGroup>
 
 </Project>

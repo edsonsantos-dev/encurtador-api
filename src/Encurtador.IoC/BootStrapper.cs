@@ -1,4 +1,8 @@
-﻿using Encurtador.Repository.Context;
+﻿using Encurtador.Application.AppServices;
+using Encurtador.Application.Interfaces;
+using Encurtador.Repository.Context;
+using Encurtador.Repository.Interfaces;
+using Encurtador.Repository.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -9,5 +13,7 @@ public static class BootStrapper
     public static void RegisterIoC(this IServiceCollection services)
     {
         services.AddScoped<DbContext, EncurtadorContext>();
+        services.AddScoped<IUrlEncurtadaRepository, UrlEncurtadaRepository>();
+        services.AddScoped<IUrlEncurtadaAppService, UrlEncurtadaAppService>();
     }
 }

@@ -12,6 +12,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\Encurtador.Application\Encurtador.Application.csproj" />
 		<ProjectReference Include="..\Encurtador.Repository\Encurtador.Repository.csproj" />
 	</ItemGroup>
 

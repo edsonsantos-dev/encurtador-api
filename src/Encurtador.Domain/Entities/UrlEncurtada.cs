@@ -1,4 +1,4 @@
-﻿using Encurtador.Domain.Enums;
+﻿using Encurtador.Shared.Enums;
 
 namespace Encurtador.Domain.Entities;
 

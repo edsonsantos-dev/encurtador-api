@@ -1,5 +1,5 @@
 ﻿using Encurtador.Domain.Entities;
-using Encurtador.Domain.Enums;
+using Encurtador.Shared.Enums;
 using Encurtador.Repository.Context;
 using Encurtador.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -26,7 +26,8 @@ public class UrlEncurtadaRepository : RepositoryGeneric<UrlEncurtada>, IUrlEncur
     {
         await _context.UrlEncurtadas
             .AsNoTracking()
-            .Where(x => x.DataExpiracao < DateTime.UtcNow)
+            .Where(x => x.DataExpiracao < DateTime.Now &&
+                x.Status == Status.Ativa)
             .ExecuteUpdateAsync(x =>
             x.SetProperty(e => e.Status, e => Status.Excluida));
     }

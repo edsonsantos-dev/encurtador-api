@@ -9,7 +9,9 @@ public class Settings
         Instance = settings;
     }
 
+    public required string UrlBase { get; set; }
     public required string Alfanumerico { get; set; }
     public int TamanoMinimo { get; set; }
     public int TamanoMaximo { get; set;}
+    public int TempoExpiracao { get; set; }
 }

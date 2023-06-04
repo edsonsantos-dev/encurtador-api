@@ -3,7 +3,7 @@
 public interface IRepository<TEntity> where TEntity : class
 {
     Task<TEntity> ObterPorId(Guid id);
-    Task<TEntity> CadastrarAsync(TEntity entity);
+    Task<TEntity> AdicionarAsync(TEntity entity);
     Task ExcluirAsync(TEntity entity);
     Task<bool> SaveChangesAsync();
 }

@@ -1,5 +1,5 @@
 ﻿using Encurtador.Domain.Entities;
-using Encurtador.Domain.Enums;
+using Encurtador.Shared.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

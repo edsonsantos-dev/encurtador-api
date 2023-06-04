@@ -22,10 +22,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Controllers\" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<ProjectReference Include="..\Encurtador.Application\Encurtador.Application.csproj" />
 		<ProjectReference Include="..\Encurtador.IoC\Encurtador.IoC.csproj" />
 		<ProjectReference Include="..\Encurtador.Repository\Encurtador.Repository.csproj" />
