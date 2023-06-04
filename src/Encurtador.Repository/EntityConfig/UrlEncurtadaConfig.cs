@@ -9,14 +9,26 @@ public class UrlEncurtadaConfig : IEntityTypeConfiguration<UrlEncurtada>
 {
     public void Configure(EntityTypeBuilder<UrlEncurtada> builder)
     {
-        builder.HasKey(x => x.Id);
+        builder.Property(x => x.Id)
+            .HasColumnName("Id".ToLower());
 
-        builder.Property(x => x.Codigo)
+        builder.Property(x => x.UrlOriginal)
+            .HasColumnName("UrlOriginal".ToLower());
+
+        builder.Property(x => x.CodigoAlfanumerico)
+            .HasColumnName("CodigoAlfanumerico".ToLower())
             .HasMaxLength(10);
 
+        builder.Property(x => x.DataExpiracao)
+            .HasColumnName("DataExpiracao".ToLower());
+
         builder.Property(x => x.Status)
+            .HasColumnName("Status".ToLower())
             .HasDefaultValue(Status.Ativa);
 
-        builder.ToTable("urlencurtada");
+        builder.HasKey(x => x.Id);
+        builder.HasIndex(x => x.CodigoAlfanumerico);
+
+        builder.ToTable("urlencurtadas");
     }
 }
