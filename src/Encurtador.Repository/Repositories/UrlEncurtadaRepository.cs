@@ -22,28 +22,32 @@ public class UrlEncurtadaRepository : RepositoryGeneric<UrlEncurtada>, IUrlEncur
             .FirstOrDefaultAsync(x => x.CodigoAlfanumerico == codigoAlfanumerico);
     }
 
-    public async Task ExcluirExpiradosAsync(bool excluirFisicamente = false)
+    public async Task<int> ExcluirExpiradosAsync(bool excluirFisicamente = false)
     {
-        await (excluirFisicamente ?
-            ExcluirFisicamenteExpiradosAsync() :
-            ExcluirLogicamenteExpiradosAsync());
+        return await (excluirFisicamente ?
+                ExcluirFisicamenteExpiradosAsync() :
+                ExcluirLogicamenteExpiradosAsync());
 
     }
 
-    private async Task ExcluirLogicamenteExpiradosAsync()
+    private async Task<int> ExcluirLogicamenteExpiradosAsync()
     {
-        await _context.UrlEncurtadas
+        var linhasAfetadas = await _context.UrlEncurtadas
             .AsNoTracking()
             .Where(x => x.DataExpiracao < DateTime.Now &&
                 x.Status == Status.Ativa)
             .ExecuteUpdateAsync(x =>
-            x.SetProperty(e => e.Status, e => Status.Excluida));
+                x.SetProperty(e => e.Status, e => Status.Excluida));
+
+        return linhasAfetadas;
     }
 
-    private async Task ExcluirFisicamenteExpiradosAsync()
+    private async Task<int> ExcluirFisicamenteExpiradosAsync()
     {
-        await _context.UrlEncurtadas
-                .Where(x => x.Status == Status.Excluida)
-                .ExecuteDeleteAsync();
+        var linhasAfetadas = await _context.UrlEncurtadas
+            .Where(x => x.Status == Status.Excluida)
+            .ExecuteDeleteAsync();
+
+        return linhasAfetadas;
     }
 }

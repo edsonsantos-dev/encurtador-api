@@ -44,9 +44,11 @@ public class UrlEncurtadaAppService : IUrlEncurtadaAppService
         return model.UrlOriginal;
     }
 
-    public async Task ExcluirExpiradosAsync(bool excluirFisicamente = false)
+    public async Task<int> ExcluirExpiradosAsync(bool excluirFisicamente = false)
     {
-        await _repository.ExcluirExpiradosAsync(excluirFisicamente);
+        var linhasAfetadas = await _repository.ExcluirExpiradosAsync(excluirFisicamente);
         await _repository.SaveChangesAsync();
+
+        return linhasAfetadas;
     }
 }

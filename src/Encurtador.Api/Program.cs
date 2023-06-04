@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.LoadSettings();
+builder.JobConfiguration();
 
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
