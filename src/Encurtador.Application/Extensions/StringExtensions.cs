@@ -1,4 +1,4 @@
-﻿using Encurtador.Application.Config;
+﻿using Encurtador.Shared.Config;
 
 namespace Encurtador.Application.Extensions;
 

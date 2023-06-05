@@ -1,4 +1,4 @@
-﻿namespace Encurtador.Application.Config;
+﻿namespace Encurtador.Shared.Config;
 
 public class Settings
 {

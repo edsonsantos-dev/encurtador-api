@@ -27,7 +27,6 @@ public class UrlEncurtadaRepository : RepositoryGeneric<UrlEncurtada>, IUrlEncur
         return await (excluirFisicamente ?
                 ExcluirFisicamenteExpiradosAsync() :
                 ExcluirLogicamenteExpiradosAsync());
-
     }
 
     private async Task<int> ExcluirLogicamenteExpiradosAsync()

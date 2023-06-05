@@ -1,4 +1,4 @@
-﻿using Encurtador.Application.Config;
+﻿using Encurtador.Shared.Config;
 using Encurtador.Application.Extensions;
 using Encurtador.Domain.Entities;
 

@@ -13,7 +13,9 @@ public static class BootStrapper
     public static void RegisterIoC(this IServiceCollection services)
     {
         services.AddScoped<DbContext, EncurtadorContext>();
-        services.AddScoped<IUrlEncurtadaRepository, UrlEncurtadaRepository>();
         services.AddScoped<IUrlEncurtadaAppService, UrlEncurtadaAppService>();
+
+        services.AddScoped<IUrlEncurtadaRepository, UrlEncurtadaRepository>();
+        services.AddScoped <IUrlEncurtadaCacheRepository, UrlEncurtadaCacheRepository>();
     }
 }

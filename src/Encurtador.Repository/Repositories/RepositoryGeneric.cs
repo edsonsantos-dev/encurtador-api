@@ -24,6 +24,7 @@ public class RepositoryGeneric<TEntity> : IRepository<TEntity> where TEntity : c
     public virtual async Task ExcluirAsync(TEntity entity)
     {
         _dbSet.Remove(entity);
+
         await SaveChangesAsync();
     }
 
