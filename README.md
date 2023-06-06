@@ -18,12 +18,12 @@ FluentValidation (para validações de entrada)
 #### Estrutura do Projeto
 O projeto utiliza a arquitetura em camadas, seguindo os seguintes padrões:
 
-**API**: Camada de interface de usuário, responsável por receber as requisições HTTP e fornecer as respostas.
-**Application**: Camada de aplicação, contendo a lógica de negócio da aplicação.
-**Domain**: Camada de domínio, contendo as entidades e regras de negócio.
-**Repository**: Camada de acesso a dados, responsável por interagir com o banco de dados.
-**IoC**: Camada de configuração de injeção de dependência.
-**Shared**: Camada contendo componentes compartilhados, como classes utilitárias, helpers e extensões.
+**API**: Camada de interface de usuário, responsável por receber as requisições HTTP e fornecer as respostas.  
+**Application**: Camada de aplicação, contendo a lógica de negócio da aplicação.  
+**Domain**: Camada de domínio, contendo as entidades e regras de negócio.  
+**Repository**: Camada de acesso a dados, responsável por interagir com o banco de dados.  
+**IoC**: Camada de configuração de injeção de dependência.  
+**Shared**: Camada contendo componentes compartilhados, como classes utilitárias, helpers e extensões.  
 
 #### Instalação do Redis com .NET
 Para utilizar o Redis com .NET, siga os passos abaixo:
@@ -35,11 +35,11 @@ Inicie uma instância do Redis localmente. Você pode usar o Docker para isso, e
 Após iniciar o Redis, instale um cliente Redis para acessar o serviço e verificar os pares chave-valor salvos. Recomendamos o uso do "Another Redis Desktop Manager".
 
 #### Configuração
-Clone o repositório para a sua máquina local.
-Certifique-se de ter o PostgreSQL e o Redis instalados e configurados corretamente.
-Abra o arquivo **appsettings.json** e configure a conexão com o banco de dados PostgreSQL.
-Execute as migrações para criar as tabelas necessárias no banco de dados PostgreSQL.
-Execute o projeto para iniciar a API.
+Clone o repositório para a sua máquina local.  
+Certifique-se de ter o PostgreSQL e o Redis instalados e configurados corretamente.  
+Abra o arquivo **appsettings.json** e configure a conexão com o banco de dados PostgreSQL.  
+Execute as migrações para criar as tabelas necessárias no banco de dados PostgreSQL.  
+Execute o projeto para iniciar a API.  
 
 #### Contribuição
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues relatando problemas, sugerir melhorias ou enviar pull requests com suas contribuições.
