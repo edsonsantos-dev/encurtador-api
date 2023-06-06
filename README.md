@@ -1,6 +1,9 @@
 # API Encurtador :star:
 Este é um projeto de API para encurtamento de URLs, baseado no repositório [backend-br/desafios](https://github.com/backend-br/desafios). A ideia básica foi aprimorada com a aplicação de práticas avançadas e padrões de desenvolvimento para tornar a API mais robusta e profissional.
 
+### :warning: Observação :warning:
+O Overengineering foi intencionalmente aplicado com o propósito de praticar e aplicar os conceitos de forma ampla.
+
 #### :warning: Regras :warning:
 O usuário deve informar uma URL válida, que não pode ser nula e deve conter os prefixos "https://" ou "http://".  
 As URLs encurtadas têm um prazo de validade de 4 horas. Após esse período, não podem mais ser utilizadas.  
