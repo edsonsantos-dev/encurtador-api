@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Encurtador.Api.Controllers;
 
+[ApiController]
 [Route("")]
 public class UrlEncurtadaController : ControllerBase
 {
@@ -22,9 +23,10 @@ public class UrlEncurtadaController : ControllerBase
         if (url != null) 
             return Redirect(url);
 
-        return NotFound("Url não encontrada");
+        return BadRequest("A URL não foi encontrada.");
     }
 
+    
     [HttpPost]
     public async Task<IActionResult> AdicionarAsync(UrlEncurtadaViewModel viewModel)
     {

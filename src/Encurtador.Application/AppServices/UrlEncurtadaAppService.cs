@@ -21,9 +21,6 @@ public class UrlEncurtadaAppService : IUrlEncurtadaAppService
 
     public async Task<string> AdicionarAsync(UrlEncurtadaViewModel viewModel)
     {
-        if (string.IsNullOrEmpty(viewModel.UrlOriginal))
-            throw new ArgumentNullException("Url não pode ser vazia ou nula");
-
         var model = viewModel.ToModel();
 
         model = await _repository.AdicionarAsync(model);

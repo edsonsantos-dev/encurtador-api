@@ -1,6 +1,7 @@
 using Encurtador.Api.Extensions;
 using Encurtador.IoC;
 using Encurtador.Repository.Context;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.LoadSettings();
 builder.JobConfiguration();
 builder.RedisConfiguration();
+builder.AddFluentValidation();
 
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 

@@ -24,4 +24,13 @@ internal static class StringExtensions
 
     internal static string MontarUrlEncurtada(this string codigoAlfanumerico) =>
         $"{Settings.Instance.UrlBase}{codigoAlfanumerico}";
+
+    internal static bool ValidarUrlOriginal(this string url)
+    {
+        if (string.IsNullOrEmpty(url))
+            return false;
+
+        return Uri.TryCreate(url, UriKind.Absolute, out Uri? uriResult)
+            && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
+    }
 }
