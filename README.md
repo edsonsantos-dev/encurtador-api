@@ -8,12 +8,12 @@ Uma vez ao dia, o job do Quartz inativa as URLs, impedindo o seu uso.
 Após uma semana, o job do Quartz exclui fisicamente as URLs do banco de dados.
 
 #### Tecnologias Utilizadas
-C# .NET 7
-ASP.NET Core
-Banco de Dados Relacional: PostgreSQL
-Banco de Dados NoSQL: Redis
-Quartz (para gerenciamento de jobs)
-FluentValidation (para validações de entrada)
+C# .NET 7  
+ASP.NET Core  
+Banco de Dados Relacional: PostgreSQL  
+Banco de Dados NoSQL: Redis  
+Quartz (para gerenciamento de jobs)  
+FluentValidation (para validações de entrada)  
 
 #### Estrutura do Projeto
 O projeto utiliza a arquitetura em camadas, seguindo os seguintes padrões:
