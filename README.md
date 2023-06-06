@@ -1,7 +1,7 @@
-# API Encurtador
-Esta é uma API para encurtamento de URLs, desenvolvida em C# .NET 7. Permite aos usuários encurtar URLs válidas, com um prazo de validade de 4 horas. Além disso, a API possui um job diário utilizando o Quartz para inativar as URLs, tornando-as indisponíveis para uso, e um job semanal para excluir fisicamente as URLs do banco de dados.
+# API Encurtador :star:
+Este é um projeto de API para encurtamento de URLs, baseado no repositório [backend-br/desafios](#https://github.com/backend-br/desafios). A ideia básica foi aprimorada com a aplicação de práticas avançadas e padrões de desenvolvimento para tornar a API mais robusta e profissional.
 
-#### Regras
+#### :warning: Regras :warning:
 O usuário deve informar uma URL válida, que não pode ser nula e deve conter os prefixos "https://" ou "http://".  
 As URLs encurtadas têm um prazo de validade de 4 horas. Após esse período, não podem mais ser utilizadas.  
 Uma vez ao dia, o job do Quartz inativa as URLs, impedindo o seu uso.  
@@ -9,7 +9,7 @@ Após uma semana, o job do Quartz exclui fisicamente as URLs do banco de dados.
 
 #### Tecnologias Utilizadas
 C# .NET 7  
-ASP.NET Core  
+Docker  
 Banco de Dados Relacional: PostgreSQL  
 Banco de Dados NoSQL: Redis  
 Quartz (para gerenciamento de jobs)  
