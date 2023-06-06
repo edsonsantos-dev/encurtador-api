@@ -2,10 +2,10 @@
 Esta é uma API para encurtamento de URLs, desenvolvida em C# .NET 7. Permite aos usuários encurtar URLs válidas, com um prazo de validade de 4 horas. Além disso, a API possui um job diário utilizando o Quartz para inativar as URLs, tornando-as indisponíveis para uso, e um job semanal para excluir fisicamente as URLs do banco de dados.
 
 #### Regras
-O usuário deve informar uma URL válida, que não pode ser nula e deve conter os prefixos "https://" ou "http://".
-As URLs encurtadas têm um prazo de validade de 4 horas. Após esse período, não podem mais ser utilizadas.
-Uma vez ao dia, o job do Quartz inativa as URLs, impedindo o seu uso.
-Após uma semana, o job do Quartz exclui fisicamente as URLs do banco de dados.
+O usuário deve informar uma URL válida, que não pode ser nula e deve conter os prefixos "https://" ou "http://".  
+As URLs encurtadas têm um prazo de validade de 4 horas. Após esse período, não podem mais ser utilizadas.  
+Uma vez ao dia, o job do Quartz inativa as URLs, impedindo o seu uso.  
+Após uma semana, o job do Quartz exclui fisicamente as URLs do banco de dados.  
 
 #### Tecnologias Utilizadas
 C# .NET 7  
