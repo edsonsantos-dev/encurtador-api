@@ -1,5 +1,6 @@
 ﻿using Encurtador.Application.AppServices;
 using Encurtador.Application.Interfaces;
+using Encurtador.Application.Validators;
 using Encurtador.Repository.Context;
 using Encurtador.Repository.Interfaces;
 using Encurtador.Repository.Repositories;
@@ -16,6 +17,9 @@ public static class BootStrapper
         services.AddScoped<IUrlEncurtadaAppService, UrlEncurtadaAppService>();
 
         services.AddScoped<IUrlEncurtadaRepository, UrlEncurtadaRepository>();
-        services.AddScoped <IUrlEncurtadaCacheRepository, UrlEncurtadaCacheRepository>();
+        services.AddScoped<IUrlEncurtadaCacheRepository, UrlEncurtadaCacheRepository>();
+
+        services.AddTransient<ObterUrlEncurtadaValidator>();
+        services.AddTransient<AdicionarUrlEncurtadaValidator>();
     }
 }

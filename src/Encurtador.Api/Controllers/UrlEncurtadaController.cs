@@ -20,10 +20,7 @@ public class UrlEncurtadaController : ControllerBase
     {
         var url = await _appService.ObterUrlOriginal(codigoAlfanumerico);
 
-        if (url != null) 
-            return Redirect(url);
-
-        return BadRequest("A URL não foi encontrada.");
+        return TratarRetorno(url);
     }
 
     
@@ -32,6 +29,20 @@ public class UrlEncurtadaController : ControllerBase
     {
         var urlEncurtada = await _appService.AdicionarAsync(viewModel);
 
-        return Ok(urlEncurtada);
+        return TratarRetorno(urlEncurtada, adicionar: true);
+    }
+
+    private IActionResult TratarRetorno(UrlEncurtadaViewModel? obj, bool adicionar = false)
+    {
+        if (obj == null)
+            return NoContent();
+
+        if (obj.ValidationResult.IsValid && adicionar)
+            return Ok(obj.UrlEncurtada);
+
+        if (obj.ValidationResult.IsValid && !adicionar)
+            return Redirect(obj.UrlOriginal!);
+
+        return BadRequest(obj.ValidationResult.Errors);
     }
 }

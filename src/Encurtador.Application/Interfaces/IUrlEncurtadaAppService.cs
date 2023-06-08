@@ -4,7 +4,7 @@ namespace Encurtador.Application.Interfaces;
 
 public interface IUrlEncurtadaAppService
 {
-    Task<string> AdicionarAsync(UrlEncurtadaViewModel viewModel);
-    Task<string?> ObterUrlOriginal(string codigoAlfanumerico);
+    Task<UrlEncurtadaViewModel> AdicionarAsync(UrlEncurtadaViewModel viewModel);
+    Task<UrlEncurtadaViewModel?> ObterUrlOriginal(string codigoAlfanumerico);
     Task<int> ExcluirExpiradosAsync(bool excluirFisicamente = false);
 }
