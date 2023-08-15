@@ -22,6 +22,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Host.ConfigureWebHostDefaults(webBuilder =>
+{
+    webBuilder.UseStartup<Program>();
+    var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+    webBuilder.UseUrls($"http://*:{port}/");
+});
+
 var app = builder.Build();
 
 app.UseSwagger();
