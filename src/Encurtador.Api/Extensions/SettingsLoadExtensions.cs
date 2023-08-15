@@ -9,4 +9,13 @@ public static class SettingsLoadExtensions
         Settings.Initialize(builder.Configuration.GetSection(nameof(Settings)).Get<Settings>());
         RedisSettings.Initialize(builder.Configuration.GetSection(nameof(RedisSettings)).Get<RedisSettings>());
     }
+
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Program>();
+            var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+            webBuilder.UseUrls($"http://*:{port}/");
+        });
 }
