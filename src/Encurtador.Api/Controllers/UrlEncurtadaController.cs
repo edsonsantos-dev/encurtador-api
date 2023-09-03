@@ -37,12 +37,11 @@ public class UrlEncurtadaController : ControllerBase
         if (obj == null)
             return NoContent();
 
-        if (obj.ValidationResult.IsValid && adicionar)
-            return Ok(obj.CodigoAlfanumerico);
-
-        if (obj.ValidationResult.IsValid && !adicionar)
-            return Redirect(obj.UrlOriginal!);
-
-        return BadRequest(obj.ValidationResult.Errors);
+        return obj.ValidationResult switch
+        {
+            { IsValid: true } when adicionar => Ok(obj.CodigoAlfanumerico),
+            { IsValid: true } when !adicionar => Redirect(obj.UrlOriginal!),
+            _ => BadRequest(obj.ValidationResult?.Errors)
+        };
     }
 }
