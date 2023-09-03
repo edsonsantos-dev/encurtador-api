@@ -6,7 +6,10 @@ namespace Encurtador.Repository.Context;
 
 public class EncurtadorContext : DbContext
 {
-    public EncurtadorContext(DbContextOptions<EncurtadorContext> options) : base(options) { }
+    public EncurtadorContext(DbContextOptions<EncurtadorContext> options, DbSet<UrlEncurtada> urlEncurtadas) : base(options)
+    {
+        UrlEncurtadas = urlEncurtadas;
+    }
 
     public DbSet<UrlEncurtada> UrlEncurtadas { get; set; }
 
