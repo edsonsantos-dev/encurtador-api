@@ -2,9 +2,9 @@
 
 public class Settings
 {
-    public static Settings Instance { get; private set; }
+    public static Settings? Instance { get; private set; }
 
-    public static void Initialize(Settings settings)
+    public static void Initialize(Settings? settings)
     {
         Instance = settings;
     }

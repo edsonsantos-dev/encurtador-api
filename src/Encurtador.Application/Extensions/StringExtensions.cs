@@ -30,7 +30,7 @@ internal static class StringExtensions
         if (string.IsNullOrEmpty(url))
             return false;
 
-        return Uri.TryCreate(url, UriKind.Absolute, out Uri? uriResult)
+        return Uri.TryCreate(url, UriKind.Absolute, out var uriResult)
             && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
     }
 }

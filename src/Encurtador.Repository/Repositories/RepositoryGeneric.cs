@@ -9,7 +9,7 @@ public class RepositoryGeneric<TEntity> : IRepository<TEntity> where TEntity : c
     private readonly EncurtadorContext _context;
     private readonly DbSet<TEntity> _dbSet;
 
-    public RepositoryGeneric(EncurtadorContext context)
+    protected RepositoryGeneric(EncurtadorContext context)
     {
         _context = context;
         _dbSet = context.Set<TEntity>();

@@ -10,14 +10,16 @@ public class GenericCacheingRepository<TEntity> : IGenericCacheingRepository<TEn
     private readonly IDistributedCache _cache;
     private readonly DistributedCacheEntryOptions _options;
 
-    public GenericCacheingRepository(IDistributedCache cache)
+    protected GenericCacheingRepository(IDistributedCache cache, DistributedCacheEntryOptions options)
     {
         _cache = cache;
-        _options = new DistributedCacheEntryOptions
-        {
-            AbsoluteExpirationRelativeToNow = TimeSpan
-            .FromHours(RedisSettings.Instance.AbsoluteExpirationRelativeToNow)
-        };
+        _options = options;
+        if (RedisSettings.Instance != null)
+            _options = new DistributedCacheEntryOptions
+            {
+                AbsoluteExpirationRelativeToNow = TimeSpan
+                    .FromHours(RedisSettings.Instance.AbsoluteExpirationRelativeToNow)
+            };
     }
 
     public async Task SetAsync(string key, TEntity value)
@@ -34,7 +36,7 @@ public class GenericCacheingRepository<TEntity> : IGenericCacheingRepository<TEn
         if (string.IsNullOrEmpty(cache))
             return null;
 
-        var model = JsonConvert.DeserializeObject<TEntity>(cache!);
+        var model = JsonConvert.DeserializeObject<TEntity>(cache);
 
         return model;
     }

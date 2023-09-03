@@ -33,12 +33,11 @@ public class UrlEncurtadaAppService : IUrlEncurtadaAppService
 
         viewModel = ValidarEMapearModelo(model, _adicionarValidator);
 
-        if (viewModel.ValidationResult.IsValid)
-        {
-            await _repository.SaveChangesAsync();
+        if (viewModel.ValidationResult is { IsValid: false }) return viewModel;
+        
+        await _repository.SaveChangesAsync();
 
-            await _cache.SetAsync(model.CodigoAlfanumerico, model);
-        }
+        await _cache.SetAsync(model.CodigoAlfanumerico, model);
 
         return viewModel;
     }

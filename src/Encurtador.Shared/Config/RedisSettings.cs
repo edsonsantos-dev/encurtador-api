@@ -2,9 +2,9 @@
 
 public class RedisSettings
 {
-    public static RedisSettings Instance { get; private set; }
+    public static RedisSettings? Instance { get; private set; }
 
-    public static void Initialize(RedisSettings settings)
+    public static void Initialize(RedisSettings? settings)
     {
         Instance = settings;
     }
